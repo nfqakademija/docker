@@ -10,17 +10,19 @@ Extracting docker related code to spearate repository because:
 Usage
 -----
 
-Build:
+Build and start containers:
 ```bash
-docker build php/ -t nfqakademija/docker:php-local
-docker build frontend/ -t nfqakademija/docker:frontend-local
+docker compose up
 ```
 
-Test if compiled:
+Test frontend:
 ```
-docker run nfqakademija/docker:frontend-local yarn --version
+docker-compose run frontend.symfony yarn --version
 ```
+
+Test backend:
+Open in the browser: [http://127.0.0.1:8000/test.php]
 
  Links
  -----
- * [Symfony KickStart projectas](https://github.com/nfqakademija/kickstart)
+ * [Symfony KickStart project](https://github.com/nfqakademija/kickstart)
