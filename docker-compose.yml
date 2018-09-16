@@ -23,9 +23,3 @@ services:
       - .docker/mysql-data/:/var/lib/mysql # To persist data between restarts
     ports:
       - 127.0.0.1:3307:3306 # Connect to it via -h127.0.0.1 --port=3307
-
-  frontend.symfony:
-    build: frontend/
-    container_name: frontend.symfony
-    volumes:
-      - ./examples:/code # Mount your code, so javaScript tools could see it
