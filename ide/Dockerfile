@@ -20,6 +20,9 @@ RUN curl "https://download-cf.jetbrains.com/webide/PhpStorm-2018.2.3.tar.gz" --o
 USER developer
 ENV HOME /home/developer
 
+# xDebug configuration
+EXPOSE 9000
+
 VOLUME ["/home/developer", "/ide", "/code"]
 
 CMD bash

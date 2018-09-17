@@ -1,4 +1,4 @@
-FROM mysql:5.7.21
+FROM mysql:5.6.36
 
 LABEL maintainer "Aurelijus Banelis <aurelijus@banelis.lt>"
 

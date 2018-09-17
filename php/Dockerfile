@@ -1,4 +1,4 @@
-FROM php:7.2.2-fpm
+FROM php:7.2.4-fpm
 
 LABEL maintainer "Aurelijus Banelis <aurelijus@banelis.lt>"
 
@@ -37,7 +37,6 @@ USER php
 ENV HOME /home/php
 
 # xDebug configuration
-EXPOSE 90004
 ENV PHP_IDE_CONFIG serverName=nfqKickStartDocker
 
 WORKDIR /code
