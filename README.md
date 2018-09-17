@@ -102,7 +102,9 @@ docker-compose -f docker-compose-tools.yml kill
 
 Remove locally cached files:
 ```bash
-rm -Rf .docker/*
+sudo rm -Rf .docker/*
+sudo mkdir -p -m 777 .docker/ide-home
+touch .docker/ide-home/.gitkeep
 ```
 
 Links
