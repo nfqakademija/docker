@@ -6,9 +6,8 @@ services:
     build: nginx
     volumes:
       - ./examples:/code # Mount your code, so nginx/phpcould see it
-      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf # Use custom virtual hosts
     ports:
-      - 127.0.0.1:8000:8000 # For development. Open in browser 127.0.0.1:8000
+      - 127.0.0.1:8000:80 # For development. Open in browser 127.0.0.1:8000
 
   php.symfony:
     container_name: php.symfony
