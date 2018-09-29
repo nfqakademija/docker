@@ -18,4 +18,6 @@ xdebug.remote_host=\"$1\"
 xdebug.remote_autostart=1
 " > /usr/local/etc/php/conf.d/custom-xdebug.ini
 
+echo "xDebug enabled"
+
 kill -USR2 1
