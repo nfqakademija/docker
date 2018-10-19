@@ -2,6 +2,12 @@
 
 set -e
 
+: ${ID_RSA_PUB:="/home/aurelijus/jenkins_id_rsa.pub"}
+if [ ! -f "$ID_RSA_PUB" ]; then
+    echo "SSH public key not found. Deployment will not work. Exiting!"
+    exit 1
+fi
+
 : ${PROJECT_NAME:="test20181015"}
 echo "Creating project $PROJECT_NAME"
 
@@ -32,6 +38,19 @@ chown $PROJECT_NAME:$PROJECT_NAME -R /home/${PROJECT_NAME}/releases
 chown $PROJECT_NAME:$PROJECT_NAME -R /home/${PROJECT_NAME}/shared
 chown $PROJECT_NAME:$PROJECT_NAME -R /home/${PROJECT_NAME}/current
 chown $PROJECT_NAME:$PROJECT_NAME /home/${PROJECT_NAME}
+
+echo "Creating initial .env file for Symfony configuration..."
+echo "APP_ENV=prod
+APP_SECRET=ThisTokenIsNotSoSecretChangeIt
+DATABASE_URL=mysql://$PROJECT_NAME:TO_BE_UPDATED@127.0.0.1:3306/$PROJECT_NAME
+" > /home/${PROJECT_NAME}/shared/.env
+
+echo "Adding SSH key for deployment from Jenkins..."
+mkdir -p "/home/${PROJECT_NAME}/.ssh"
+cp "$ID_RSA_PUB" "/home/${PROJECT_NAME}/.ssh/authorized_keys"
+chmod 700 "/home/${PROJECT_NAME}/.ssh"
+chmod 600 "/home/${PROJECT_NAME}/.ssh/authorized_keys"
+chown $PROJECT_NAME:$PROJECT_NAME -R "/home/${PROJECT_NAME}/.ssh"
 
 echo "Configuring PHP FPM..."
 echo "[$PROJECT_NAME]
