@@ -17,7 +17,7 @@ where `PROEJCT_NAME` is usually the same as the name of github repository.
 
 ## How deployment works
 
-![How deployment works](res/scheme-deploy-overview.svg)
+![How deployment works](res/scheme-deploy-overview.png)
 
 1. You merge your changes to `master` branch and push it to GitHub (`git push origin master`)
 2. [GitHub](https://github.com/) have WebHook configured for the project, so it informs `ci.nfqakademija.lt`,
