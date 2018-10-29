@@ -12,8 +12,8 @@ nfqakademija.lt ansible_host=deploy.nfqakademija.lt ansible_user=$JOB_NAME
 $WORKSPACE/.deploy/deploy.sh
 ```
 
-And your page will appear in http://PROEJCT_NAME.projektai.nfqakademija.lt/,
-where `PROEJCT_NAME` is usually the same as the name of github repository.
+And your page will appear in http://PROJECT_NAME.projektai.nfqakademija.lt/,
+where `PROJECT_NAME` is usually the same as the name of github repository.
 
 ## How deployment works
 
@@ -30,11 +30,11 @@ where `PROEJCT_NAME` is usually the same as the name of github repository.
 4. [Ansible](https://www.ansible.com/) (started by `deploy.sh`) use configuration in `deploy_playbook.yaml`.
    Usually it SSH to Web Server, copies build artifacts (E.g. `project.tar.gz`), change symbolic links to newest version
    (to make deployment atomic), warm-up cache.
-5. If there are no errors, you should see your new changes via `http://PROEJCT_NAME.projektai.nfqakademija.lt/`,
-   where `PROEJCT_NAME` is your GitHub repository name.
+5. If there are no errors, you should see your new changes via `http://PROJECT_NAME.projektai.nfqakademija.lt/`,
+   where `PROJECT_NAME` is your GitHub repository name.
 6. For more complex scenarios (E.g. custom `.env` configuration, setting up database tables),
-   you can connect to WEB server using `ssh PROEJCT_NAME@deploy.nfqakademija.lt -p 2222`,
-   where `PROEJCT_NAME` is your GitHub repository name.
+   you can connect to WEB server using `ssh PROJECT_NAME@deploy.nfqakademija.lt -p 2222`,
+   where `PROJECT_NAME` is your GitHub repository name.
 7. If there are any errors, you can login to [ci.nfqakademija.lt](https://ci.nfqakademija.lt/) and in `Build History`
    check `Console Output`.
    Last lines usually shows error message.
