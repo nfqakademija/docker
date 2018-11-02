@@ -43,4 +43,20 @@ where `PROJECT_NAME` is usually the same as the name of github repository.
 
 To get notifications about failed/successful builds, you can add `Jenkins` integration to `Slack`
 
+## How to update database on server
 
+1. SSH to deploy server:
+```bash
+ssh PROEJCT_NAME@deploy.nfqakademija.lt -p 2222
+```
+Where `PROEJCT_NAME` is your GitHub repository name
+
+2. Go to current deployed version
+```bash
+cd ~/current
+```
+3. Use `bin/console` as you did locally (database credentials already in `.env`, which is linked to `~/shared/.env`):
+```bash
+bin/console doctrine:migrations:migrate
+```
+Answer `Yes` (assuming you are the author and know, what migrations are to be applied)
