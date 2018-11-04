@@ -5,7 +5,7 @@ services:
     container_name: nginx.symfony
     build: nginx
     volumes:
-      - ./examples:/code # Mount your code, so nginx/phpcould see it
+      - ./examples:/code # Mount your code, so nginx/php could see it
     ports:
       - 127.0.0.1:8000:80 # For development. Open in browser 127.0.0.1:8000
 
