@@ -70,7 +70,7 @@ There should be `Jenkins` app already in added to Slack organisation:
 
 ![Add Jenkins integration](res/slack-add-jenkins-integration-1.jpg)
 
-Recommended to use channel per team (does it work like that?):
+Recommended to use channel per team (need to tell your channel name to Jenkins admin/lecturer).
 
 ![Add Jenkins integration](res/slack-add-jenkins-integration-to-your-channel.jpg)
 
@@ -81,3 +81,9 @@ So you could see build status:
 And click link to Jenkins to see details, what went wrong:
 
 ![Jenkins build status with link to Console output](res/jenkins-when-something-failed.jpg)
+
+
+**Ask Jenkins admin/lecturer**, to configure `Project Channel` in Job `Slack Notifications`,
+so notifications could be sent to your team channel
+
+![Jenkins configure Slack integration per channel](res/jenkins-Slack-integration-per-job.jpeg)
