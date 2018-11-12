@@ -18,8 +18,8 @@ RUN apt-get update \
 
 # Install PHP extensions
 RUN apt-get update \
- && apt-get install -y libzip-dev bash-completion procps nano \
- && docker-php-ext-install -j$(nproc) zip mysqli pdo_mysql \
+ && apt-get install -y libzip-dev bash-completion procps nano libicu-dev g++ \
+ && docker-php-ext-install -j$(nproc) zip mysqli pdo_mysql intl \
  && rm -rf /var/lib/apt/lists/*
 
 # xDebug helpers (do not use this in real production)
