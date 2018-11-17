@@ -66,8 +66,23 @@ It is usually done by one of the lecturers, who manages WEB+CI servers.
 
 By default all notifications are going to same channel.
 But it is more convenient to have notifications per team (or project).
+
+## 5.1. Configure (notifications per project) on Slack side
  
-## 5.1. Configure on Jenkins side (to have to your Slack channel)
+![Add integration to your channel](res/slack-add-integration.jpg)
+
+There should be `Jenkins` app already in added to Slack organisation:
+
+![Add Jenkins integration](res/slack-add-jenkins-integration-1.jpg)
+
+Recommended to use channel per team (need to tell your channel name to Jenkins admin/lecturer).
+
+![Add Jenkins integration](res/slack-add-jenkins-integration-to-your-channel.jpg)
+
+This should give yout `Integration token`.
+This will be needed in following steps (on Jenkins side).
+
+## 5.2. Configure on Jenkins side
 
 Mentors should have admin (`mentor` role) access to [ci.nfqakademija.lt](https://ci.nfqakademija.lt)
 
@@ -89,19 +104,15 @@ Configure `Project Channel` with **your team's** Slack channel name:
 
 You may want to click `Test Connection`.
 
+**If there is `Failure`**. Configure:
+* `Base URL`: `https://nfqakademija.slack.com/services/hooks/jenkins-ci/`
+* `Integration Token`: _The one you got in previous step_
+
+Try again `Test Connection`.
+
 Finish configuration by clicking **`Save`**
 
-## 5.2. Configure (notifications per project) on Slack side
- 
-![Add integration to your channel](res/slack-add-integration.jpg)
-
-There should be `Jenkins` app already in added to Slack organisation:
-
-![Add Jenkins integration](res/slack-add-jenkins-integration-1.jpg)
-
-Recommended to use channel per team (need to tell your channel name to Jenkins admin/lecturer).
-
-![Add Jenkins integration](res/slack-add-jenkins-integration-to-your-channel.jpg)
+## 5.3. Final result
 
 So you could see build status:
 
