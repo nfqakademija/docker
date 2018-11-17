@@ -63,6 +63,35 @@ It is usually done by one of the lecturers, who manages WEB+CI servers.
 * Active: _`Checked`_
 
 ## 5. Create Slack integration to see Jenkins build status
+
+By default all notifications are going to same channel.
+But it is more convenient to have notifications per team (or project).
+ 
+## 5.1. Configure on Jenkins side (to have to your Slack channel)
+
+Mentors should have admin (`mentor` role) access to [ci.nfqakademija.lt](https://ci.nfqakademija.lt)
+
+Choose your project (in Jenkins terminology it is called `job`):
+
+![In Jenkins choose your project](res/jenkins-choose-your-project.jpg)
+
+Choose `Configure`:
+
+![In Job action](res/jenkins-job-actions-configure.jpg)
+
+Scroll down to `Post-build Actions` -> `Slack Notifications` and click `Advanced` button:
+
+![Click Advanced button in Slack Notifications](res/jenkins-post-build-slack-advanced-button.jpg)
+
+Configure `Project Channel` with **your team's** Slack channel name: 
+
+![Jenkins configure Slack integration per channel](res/jenkins-Slack-integration-per-job.jpeg)
+
+You may want to click `Test Connection`.
+
+Finish configuration by clicking **`Save`**
+
+## 5.2. Configure (notifications per project) on Slack side
  
 ![Add integration to your channel](res/slack-add-integration.jpg)
 
@@ -81,9 +110,3 @@ So you could see build status:
 And click link to Jenkins to see details, what went wrong:
 
 ![Jenkins build status with link to Console output](res/jenkins-when-something-failed.jpg)
-
-
-**Ask Jenkins admin/lecturer**, to configure `Project Channel` in Job `Slack Notifications`,
-so notifications could be sent to your team channel
-
-![Jenkins configure Slack integration per channel](res/jenkins-Slack-integration-per-job.jpeg)
