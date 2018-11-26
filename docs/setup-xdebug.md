@@ -110,7 +110,7 @@ there should be error message about `nfqKickStartDocker` server.
 ![PHPStorm Servers modal: empty](res/phpstorm-servers-empty.jpeg)
 
 * Add new server configuration with `+` sign. Enter:
-  * Name: `nfqKickStartDecker` (lower/upper case matters)
+  * Name: `nfqKickStartDocker` (lower/upper case matters)
   * Host: `127.0.0.1`
   * Port: `8000`
   * Debugger: `Xdebug`
