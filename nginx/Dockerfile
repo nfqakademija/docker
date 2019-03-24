@@ -1,4 +1,4 @@
-FROM nginx:1.10.3
+FROM nginx:1.14.0
 
 LABEL maintainer "Aurelijus Banelis <aurelijus@banelis.lt>"
 

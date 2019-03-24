@@ -1,4 +1,4 @@
-FROM mysql:5.7.24
+FROM mariadb:10.3.13-bionic
 
 LABEL maintainer "Aurelijus Banelis <aurelijus@banelis.lt>"
 
