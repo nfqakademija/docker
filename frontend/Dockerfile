@@ -1,4 +1,4 @@
-FROM node:9.10.0
+FROM node:11.12.0-stretch
 
 LABEL maintainer "Aurelijus Banelis <aurelijus@banelis.lt>"
 
