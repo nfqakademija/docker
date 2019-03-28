@@ -13,7 +13,7 @@ RUN ln -s /php/composer.phar /usr/bin/composer
 
 # Install depenedencies and PHP extensions
 RUN apt-get update \
- && apt-get install -y libzip-dev bash-completion procps nano libicu-dev g++ libpng-dev libcurl4-gnutls-dev \
+ && apt-get install -y libzip-dev bash-completion procps nano libicu-dev g++ libpng-dev libcurl4-gnutls-dev git wget gzip \
  && docker-php-ext-install -j$(nproc) zip mysqli pdo_mysql intl calendar exif gd gettext pcntl sockets opcache curl \
  && rm -rf /var/lib/apt/lists/*
 
@@ -25,6 +25,10 @@ RUN pecl install xdebug-2.7.0 && \
     chmod +x /disable_xdebug.sh && \
     touch /usr/local/etc/php/conf.d/custom-xdebug.ini && \
     chmod 777 /usr/local/etc/php/conf.d/custom-xdebug.ini
+
+# Add Symfony extension
+RUN wget https://get.symfony.com/cli/installer -O - | bash
+RUN mv ~/.symfony/bin/symfony /usr/local/bin/symfony
 
 # Not root user
 RUN useradd -c 'PHP user' -m -d /home/php -s /bin/bash php
