@@ -13,8 +13,8 @@ RUN ln -s /php/composer.phar /usr/bin/composer
 
 # Install depenedencies and PHP extensions
 RUN apt-get update \
- && apt-get install -y libzip-dev bash-completion procps nano libicu-dev g++ libpng-dev libcurl4-gnutls-dev git wget gzip \
- && docker-php-ext-install -j$(nproc) zip mysqli pdo_mysql intl calendar exif gd gettext pcntl sockets opcache curl \
+ && apt-get install -y libzip-dev bash-completion procps nano libicu-dev g++ libpng-dev libcurl4-gnutls-dev git wget gzip unzip \
+ && docker-php-ext-install -j$(nproc) zip mysqli pdo_mysql intl calendar exif gd gettext pcntl sockets opcache \
  && rm -rf /var/lib/apt/lists/*
 
 # xDebug helpers (do not use this in real production)
@@ -34,6 +34,9 @@ RUN mv ~/.symfony/bin/symfony /usr/local/bin/symfony
 RUN useradd -c 'PHP user' -m -d /home/php -s /bin/bash php
 USER php
 ENV HOME /home/php
+
+# Configure git, so there would not be errors running "symfony new my_project"
+RUN git config --global user.email "docker.fake.user@example.com" && git config --global user.name "Docker fake user"
 
 # xDebug configuration
 ENV PHP_IDE_CONFIG serverName=nfqKickStartDocker
