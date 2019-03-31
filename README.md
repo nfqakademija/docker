@@ -13,22 +13,22 @@ Docker containers
 
 [Nginx server](nginx/Dockerfile):
 ```
-docker pull aurelijusb/docker:nginx-latest
+docker pull nfqakademija/docker:nginx-latest
 ```
 
 [PHP runtime](php/Dockerfile):
 ```
-docker pull aurelijusb/docker:php-latest
+docker pull nfqakademija/docker:php-latest
 ```
 
 [MySql database](mysql/Dockerfile):
 ```
-docker pull aurelijusb/docker:mysql-latest
+docker pull nfqakademija/docker:mysql-latest
 ```
 
 [node.js for Frontend development](frontend/Dockerfile):
 ```
-docker pull aurelijusb/docker:frontend-latest
+docker pull nfqakademija/docker:frontend-latest
 ```
 
 See [`docker-compose.yml`](docker-compose.yml) and [`docker-compose-tools.yml`](docker-compose-tools.yml) as examples
