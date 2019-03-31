@@ -31,11 +31,6 @@ docker pull aurelijusb/docker:mysql-latest
 docker pull aurelijusb/docker:frontend-latest
 ```
 
-[PHPStorm for easier xDebug configuration](ide/Dockerfile):
-```
-docker pull aurelijusb/docker:idea-latest
-```
-
 See [`docker-compose.yml`](docker-compose.yml) and [`docker-compose-tools.yml`](docker-compose-tools.yml) as examples
 
 Usage
@@ -54,16 +49,6 @@ Test frontend:
 docker-compose -f docker-compose-tools.yml run frontend.symfony yarn --version
 ```
 
-Run IDE via container
-```bash
-docker-compose -f docker-compose-tools.yml up ide.symfony
-```
-
-Run browser:
-```bash
-docker-compose -f docker-compose-tools.yml up browser.symfony
-```
-
 Cleanup
 -------
 
@@ -76,8 +61,6 @@ docker-compose -f docker-compose-tools.yml kill
 Remove locally cached files:
 ```bash
 sudo rm -Rf .docker/*
-sudo mkdir -p -m 777 .docker/ide-home
-touch .docker/ide-home/.gitkeep
 ```
 
 Links
