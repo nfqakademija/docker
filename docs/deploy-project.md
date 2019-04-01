@@ -3,6 +3,8 @@ How to deploy project
 
 If [configured correctly](how-to-create-new-project.md), you only need to **`git push origin master`**.
 
+> :exclamation: Currently there are **issues with CI server** and SSL certificate. Deploy via SSH (`ssh PROJECT_NAME@deploy.nfqakademija.lt -p 2222`) until it is fixed
+
 Jenkins in `ci.nfqakademija.lt` will run:
 ```bash
 $WORKSPACE/.deploy/build.sh
