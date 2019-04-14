@@ -62,3 +62,25 @@ cd ~/current
 bin/console doctrine:migrations:migrate
 ```
 Answer `Yes` (assuming you are the author and know, what migrations are to be applied)
+
+## How to debug errors
+
+If you see white/blank page. It may be related to errors in your PHP application. To debug:
+
+
+1. SSH to deploy server:
+```bash
+ssh PROEJCT_NAME@deploy.nfqakademija.lt -p 2222
+```
+Where `PROEJCT_NAME` is your GitHub repository name
+
+2. Check PHP-FPM/nginix logs
+```bash
+tail /var/log/nginx/${USER}.projektai.nfqakademija.lt-error.log
+```
+You should see somehting like:
+> ```
+> 2019/04/14 16:52:46 [error] 967#967: *190 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected 'PARSE' (T_STRING) in /home/test20190408/releases/20190414164222/public/index.php on line 3" ...
+> ```
+
+If that does not help. You can **temporary** set `APP_ENV=dev` in `~/current/.env.local`. But this is last option and is not good practice.
