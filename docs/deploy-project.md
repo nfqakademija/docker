@@ -82,3 +82,21 @@ You should see somehting like:
 > ```
 
 If that does not help. You can **temporary** set `APP_ENV=dev` in `~/current/.env.local`. But this is last option and is not good practice.
+
+3. Check [Symfony logs](https://symfony.com/doc/current/logging.html)
+```bash
+tail ~/current/var/log/prod.log
+```
+
+You could see something like:
+> ```
+> [2019-04-24 15:22:56] request.CRITICAL: Uncaught PHP Exception Doctrine\DBAL\Exception\TableNotFoundException: "...  doesn't exist at ... /vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php:117)"} []
+> ```
+
+4. Check, if all migrations are exectuted
+
+```bash
+~/current/bin/console doctrine:migrations:status
+```
+
+More inforamtion at [doctrine docs](https://symfony.com/doc/master/bundles/DoctrineMigrationsBundle/index.html)
