@@ -220,3 +220,4 @@ Useful for temporary stopping debugging.
   Port can be assigned only to single application, so you cannot use 2 programs to receive xDebug calls.
 * There is firewall for `9000` port connection
 * For troubleshooting it is useful to temporary enable `Break at first line in PHP Scripts`
+* You have older `PHPStorm` version, that do not support newest `xDebug` (e.g. first line works, stepping does not) – upgrade your `PHPStorm` to newest version
