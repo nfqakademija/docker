@@ -21,11 +21,26 @@ So same name could be used in Database name, Jenkins user and subdomain name (no
 
 ### 1.2 Push newest version of `kickstart`
 
+As in GitHub example like:
+> …or push an existing repository from the command line
+> ```
+> git remote add origin git@github.com:nfqakademija/test20181015.git
+> git push -u origin master
+> `
+
+In some new folder:
 ```bash
-git clone git@github.com:nfqakademija/test20181015.git
-cd test20181015
+git init .
+git remote add upstream git@github.com:nfqakademija/kickstart.git
+git fetch upstream
+git merge upstream/master
+
+git remote add origin git@github.com:nfqakademija/test20181015.git
+git push -u origin master
 ```
 Where `test20181015` is name of the project.
+
+This will upload newest version of kickstarter project to your own team GitHub respository.
 
 ## 1.3 Add students 
 
