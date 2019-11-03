@@ -51,7 +51,8 @@ So everyone could do integrations, etc.
 
 ## 2. Setup Web server for new project
 
-It is usually done by one of the lecturers, who manages WEB+CI servers.
+> It is usually done by one of the lecturers, who have _root_ access to WEB+CI servers (E.g. _Aurelijus_).
+
 There is script (still being improved) to automate creation of the user:
 ```bash
 new-project.sh test20181015
@@ -60,12 +61,39 @@ Where `test20181015` is project name
 
 ## 3. Setup Jenkins CI
 
-It is usually done by one of the lecturers, who manages WEB+CI servers.
+> It is usually done by one of the lecturers, who have _root_ manages Jenkins in CI server.
 
-* Creating user for debugging/manual start
-* Creating Job to build/deploy
-* Enabling `GitHub hook trigger for GITScm polling` for WebHooks
-* Adding roles and permissions
+## 3.1 Copy job template from `kickstart`
+
+When logged in to [Jenkins](https://ci.nfqakademija.lt), click `New item`:
+
+![Jenkins: New item](res/jenkins-new-item.jpg)
+
+
+Use your GitHub project name and choose to copy from `kickstart`:
+
+![Jenkins: Job name and copy from](res/jenkins-job-copy-from.jpg)
+
+## 3.2 Change template to your project configuration
+
+ * `GitHub project`: `Project url` should point to your GitHub repository
+ * `Source Code Management`: `Git`: `Repository URL` should point to your GitHub repository
+ 
+## 3.3 (Optional) ensure other configuration is also set
+
+This should be already correct. For double check, there should be:
+
+ * `Build Triggers`: `GitHub hook trigger for GITScm polling`
+ * `Build`: `Execute shell` with calls to _build.sh_ and _deploy.sh_
+ * `Post-build Actions`: `Slack notification`
+ 
+## 3.4 (Optional) Create read-only permissions per project for debugging
+
+So students could investigate errors them selves.
+
+ * `Manage Jenkins`: `Manage users`: `Create User`: add user per project
+ * `Manage Jenkins`: `Manage and assign roles`: `Manage roles`: `Project roles`: add your project
+ * `Manage Jenkins`: `Manage and assign roles`: `Assign roles`: use matrix model to limit role access by job/project name
 
 ## 4. Create WebHook to deploy on `push` to master
 
