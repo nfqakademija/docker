@@ -43,6 +43,24 @@ where `PROJECT_NAME` is usually the same as the name of github repository.
 
 To get notifications about failed/successful builds, you can add `Jenkins` integration to `Slack`
 
+## How to configure passwords (e.g. Mailer)
+
+* :exclamation: **Do not add passwords** to `.env` file – because it will be pushed **publickly** to GitHub
+* During development put **real values** in [`.env.local`](https://symfony.com/doc/current/configuration.html#managing-multiple-env-files)
+– so they would be kept only in your machine
+* Use `ssh PROJECT_NAME@deploy.nfqakademija.lt -p 2222` to connect to production server:
+  * `nano ~/shared/.env.local` to update files manually on a server
+  
+For mail configuration. We recomend using [Gmail](https://symfony.com/doc/current/email.html#using-gmail-to-send-emails):
+ * `.env` would be used for documentation only. E.g.:
+```env
+MAILER_URL=null://localhost
+```
+ * `.env.local` use real value specific to your machine or production server. E.g.:
+```env
+MAILER_URL=gmail://username:password@localhost
+```
+
 ## How to update database on server
 
 1. SSH to deploy server:
